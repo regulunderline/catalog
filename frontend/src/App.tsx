@@ -1,20 +1,18 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
-import productsService from "./services/products"
-import { type Product } from "./types/products"
+import { useAppDispatch } from "./hooks/useAppDispatch"
+import { initializeProducts } from "./reducers/productsReducer"
+import { useSelector } from "react-redux"
+import type { StoreState } from "./store"
 
 const App = () => {
-  const [products, setProducts] = useState<Product[]>([])
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const products = await productsService.getAll()
+    dispatch(initializeProducts())
+  }, [dispatch])
 
-      setProducts(products)
-    }
-
-    fetchProducts()
-  }, [])
+  const products = useSelector((state: StoreState) => state.products)
   return (
     <div>
       {products.map(p => <div>{p.title}</div>)}
