@@ -19,9 +19,12 @@ const Search = () => {
 
   return (
     <div>
-      <input
-        onChange={handleChange}
-      />
+      <label>
+        search
+        <input
+          onChange={handleChange}
+        />
+      </label>
     </div>
   )
 }

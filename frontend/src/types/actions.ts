@@ -1,7 +1,7 @@
 import type { UnknownAction } from "redux"
 
 import type { Product } from "./products"
-import type { Category } from "./other"
+import type { Order } from "./other"
 
 export interface SetProductsAction extends UnknownAction {
   type: string
@@ -10,12 +10,12 @@ export interface SetProductsAction extends UnknownAction {
 
 export interface SetCategoryAction extends UnknownAction {
   type: string
-  payload: Category
+  payload: string
 }
 
 export interface SetCategoriesAction extends UnknownAction {
   type: string
-  payload: Category[]
+  payload: string[]
 }
 
 export interface SetSearchAction extends UnknownAction {
@@ -26,4 +26,9 @@ export interface SetSearchAction extends UnknownAction {
 export interface SetPageAction extends UnknownAction {
   type: string
   payload: number
+}
+
+export interface SetOrderAction extends UnknownAction {
+  type: string
+  payload: Order
 }

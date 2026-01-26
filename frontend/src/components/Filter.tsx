@@ -10,7 +10,7 @@ const Filter = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(setCategory({ name: 'all', id: null }))
+    dispatch(setCategory('all'))
     dispatch(initializeCategories())
   }, [dispatch])
 
@@ -24,7 +24,7 @@ const Filter = () => {
           type="radio"
           name="filter"
           onChange={() => {
-            dispatch(setCategory({ name: 'all', id: null }))}
+            dispatch(setCategory('all'))}
           }
           defaultChecked
         />
@@ -32,7 +32,7 @@ const Filter = () => {
       
       {categories.map((c, i) => 
         <label key={i}>
-          {c.name}
+          {c}
           <input
             type="radio"
             name="filter"

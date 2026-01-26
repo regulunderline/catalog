@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-import productService, { type GetAllArgs } from '../services/products.ts'
+import productService from '../services/products.ts'
 
 import type { AppDispatch, StoreState } from '../store.ts'
 import type { Product } from '../types/products.ts'
 import type { SetProductsAction } from '../types/actions.ts'
+import type { GetAllSortedArgs } from '../types/other.ts'
 
 const productsSlice = createSlice({
   name: 'products',
@@ -18,15 +19,15 @@ const productsSlice = createSlice({
 
 const { setProducts } = productsSlice.actions
 
-export const fetchProducts = (limit: number | undefined = undefined, offset: number | undefined = undefined) => {
+export const fetchProducts = () => {
   return async (dispatch: AppDispatch, getState: () => StoreState) => {
     const state = getState()
 
-    const args: GetAllArgs = { limit, offset }
-    if(state.category.id !== null) args.categoryId = state.category.id
+    const args: GetAllSortedArgs = { sortBy: state.order.sortBy, desc: state.order.desc }
+    if(state.category !== 'all') args.category = state.category
     if(state.search) args.title = state.search
 
-    const products = await productService.getAll(args)
+    const products = await productService.getAllSorted(args)
     dispatch(setProducts(products))
   }
 }

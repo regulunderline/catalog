@@ -4,11 +4,10 @@ import categoriesService from '../services/categories.ts'
 
 import type { AppDispatch } from '../store.ts'
 import type { SetCategoriesAction } from '../types/actions.ts'
-import type { Category } from '../types/other.ts'
 
 const categoriesSlice = createSlice({
   name: 'categories',
-  initialState: [] as Category[],
+  initialState: [] as string[],
   reducers: {
     setCategories(_state, action: SetCategoriesAction) {
       return action.payload
