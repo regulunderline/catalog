@@ -12,7 +12,7 @@ const Cart = () => {
 
   return (
     <div>
-      <h1>Cart</h1>
+      <h1 className="text-center">Cart</h1>
       {cart.length 
         ? <div>
             {cart.map(p => <CartCard key={p.id} product={p} />)}

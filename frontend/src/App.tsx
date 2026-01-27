@@ -6,15 +6,18 @@ import Notification from "./components/Notification"
 
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <Notification />
-
-      <Routes>
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-      </Routes>
-    </Router>
+    <div className="flex flex-col">
+      <Router>
+        <Header />
+        <div className="pt-16">
+          <Notification />
+          <Routes>
+            <Route path="/products" element={<Products />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   )
 }
 
