@@ -7,6 +7,8 @@ export interface Product {
   image: string
 }
 
+export type CartProduct = Product & { count: number }
+
 // export interface Product {
 //   id: number
 //   title: string

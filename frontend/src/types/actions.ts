@@ -1,6 +1,6 @@
 import type { UnknownAction } from "redux"
 
-import type { Product } from "./products"
+import type { CartProduct, Product } from "./products"
 import type { Order } from "./other"
 
 export interface SetProductsAction extends UnknownAction {
@@ -31,4 +31,35 @@ export interface SetPageAction extends UnknownAction {
 export interface SetOrderAction extends UnknownAction {
   type: string
   payload: Order
+}
+
+export interface SetCartAction extends UnknownAction {
+  type: string
+  payload: CartProduct[]
+}
+
+export interface IncreaseCountInCartAction extends UnknownAction {
+  type: string
+  payload: {
+    id: number
+    increaseBy: number
+  }
+}
+
+export interface SetCountInCartAction extends UnknownAction {
+  type: string
+  payload: {
+    id: number
+    count: number
+  }
+}
+
+export interface AddProductToCartAction extends UnknownAction {
+  type: string
+  payload: Product
+}
+
+export interface RemoveFromCartAction extends UnknownAction {
+  type: string
+  payload: { id: number }
 }
