@@ -1,7 +1,7 @@
 import type { UnknownAction } from "redux"
 
 import type { CartProduct, Product } from "./products"
-import type { Order } from "./other"
+import type { Notification, Order } from "./other"
 
 export interface SetProductsAction extends UnknownAction {
   type: string
@@ -63,3 +63,8 @@ export interface RemoveFromCartAction extends UnknownAction {
   type: string
   payload: { id: number }
 }
+
+export interface SetNotificationAction extends UnknownAction {
+  type: string
+  payload: Omit<Notification, 'id'> | null
+} 

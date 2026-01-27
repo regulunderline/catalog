@@ -13,3 +13,9 @@ export interface GetAllArgs {
 export type GetAllSortedArgs = GetAllArgs & Order & {
   title?: string
 }
+
+export interface Notification {
+  message: string | null
+  type: string
+  id: number
+}
