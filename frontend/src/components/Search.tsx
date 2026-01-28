@@ -1,4 +1,4 @@
-import type { ChangeEvent } from "react"
+import { useEffect, type ChangeEvent } from "react"
 import { useDebouncedCallback } from "use-debounce"
 
 import { useAppDispatch } from "../hooks/useAppDispatch"
@@ -6,6 +6,10 @@ import { setSearch } from "../reducers/searchReducer"
 
 const Search = () => {
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(setSearch(''))
+  },[dispatch])
 
   const debounced = useDebouncedCallback(
     (value: string) => {

@@ -1,9 +1,13 @@
-import type { ChangeEvent } from "react"
+import { useEffect, type ChangeEvent } from "react"
 import { useAppDispatch } from "../hooks/useAppDispatch"
 import { setOrder } from "../reducers/orderReducer"
 
 const OrderSelection = () => {
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(setOrder({ sortBy: 'title' }))
+  },[dispatch])
 
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const sortBy = e.target.value.slice(0, 5)
