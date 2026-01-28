@@ -3,6 +3,7 @@
   npm install  
   npm run build  
   npm run preview  
+    
 Запуск в dev mode:  
   cd .\frontend  
   npm install  
@@ -13,7 +14,7 @@
   VITE_API_URL="https://fakestoreapi.com/products"  
 
 
-Использованные технологии:
+Использованные технологии:  
   Vite: упрощение настройки приложения.  
   Redux, Redux Toolkit: State Management.  
   Axios: упрощение запросов к api.  
