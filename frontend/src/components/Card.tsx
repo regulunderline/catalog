@@ -16,15 +16,25 @@ const Card = ({ product }: { product: Product }) => {
   return (
     <div className="card">
       <div className="flex flex-row items-center justify-start">
-        <img src={product.image} alt="product image" className="w-1/5 h-1/5 mr-auto" /> 
+        <img src={product.image} alt="product image" className="w-1/5 h-1/5 mr-auto" />
+
         <span className="heading mr-auto">{product.title}</span>
       </div>
       
       <p className="mb-3 text-xl font-semibold tracking-tight text-white leading-8">
         {product.price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
       </p>
+
       <p>{product.description}</p>
-      <div><button className="button-blue" onClick={handleAddToCart}>Добавить в корзину</button> {inStock && <>Есть на складе</>}</div> 
+
+      <div>
+        <button className="button-blue" onClick={handleAddToCart}>
+          Добавить в корзину
+        </button>
+        
+        {inStock &&
+          <>Есть на складе</>}
+      </div> 
     </div>
   )
 }

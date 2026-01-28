@@ -20,7 +20,7 @@ const productsSlice = createSlice({
 const { setProducts } = productsSlice.actions
 
 export const fetchProducts = () => {
-  return async (dispatch: AppDispatch, getState: () => StoreState) => {
+  return async (dispatch: AppDispatch, getState: () => StoreState): Promise<boolean> => {
     const state = getState()
 
     const args: GetAllSortedArgs = { sortBy: state.order.sortBy, desc: state.order.desc }
@@ -29,6 +29,8 @@ export const fetchProducts = () => {
 
     const products = await productService.getAllSorted(args)
     dispatch(setProducts(products))
+
+    return products.length ? true : false
   }
 }
 

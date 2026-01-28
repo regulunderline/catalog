@@ -8,6 +8,7 @@ import searchReducer from './reducers/searchReducer'
 import orderReducer from './reducers/orderReducer'
 import pageReducer from './reducers/pageReducer'
 import notificationReducer from './reducers/notificationReducer'
+import loadingReducer from './reducers/loadingReducer'
 
 const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ const store = configureStore({
     order: orderReducer,
     page: pageReducer,
     notification: notificationReducer,
+    loading: loadingReducer,
 }
 })
 

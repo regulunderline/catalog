@@ -68,3 +68,8 @@ export interface SetNotificationAction extends UnknownAction {
   type: string
   payload: Omit<Notification, 'id'> | null
 } 
+
+export interface SetLoadingAction extends UnknownAction {
+  type: string
+  payload: boolean
+} 

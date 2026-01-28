@@ -67,4 +67,22 @@
       focus:outline-none focus:ring-blue-900
       border border-gray-900 appearance-none
   }
+  
+}
+
+@layer components {
+  .skeleton {
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
+  }
+
+  .skeleton-text {
+    @apply 
+      w-full h-3 mb-2 rounded-sm;
+  }
+
+  @keyframes skeleton-loading {
+    0% { background-color: hsl(200, 20%, 70%); }
+    100% { background-color: hsl(200, 20%, 95%); }
+  }
 }

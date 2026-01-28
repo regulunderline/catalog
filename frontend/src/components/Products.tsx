@@ -11,10 +11,17 @@ import Filter from "./Filter"
 import Search from "./Search"
 import { setPage } from "../reducers/pageReducer"
 import OrderSelection from "./OrderSelection"
+import { setLoading } from "../reducers/loadingReducer"
+import SkeletonCard from "./SkeletonCard"
 
 const Products = () => {
   const dispatch = useAppDispatch()
 
+  useEffect(() => {
+    dispatch(setLoading(true))
+  }, [dispatch])
+
+  const loading = useSelector((state: StoreState) => state.loading)
   const products = useSelector((state: StoreState) => state.products)
   const category = useSelector((state: StoreState) => state.category)
   const search = useSelector((state: StoreState) => state.search)
@@ -22,14 +29,27 @@ const Products = () => {
   const page = useSelector((state: StoreState) => state.page)
 
   useEffect(() => {
-    dispatch(fetchProducts())
-  }, [dispatch, category, search, order])
-  
-  useEffect(() => {
-    dispatch(setPage(0))
+    const fetchData = async () => {
+      dispatch(setPage(0))
+      dispatch(fetchProducts())
+        .then(() => {
+          dispatch(setLoading(false))
+        })
+    }
+    
+    fetchData()
   }, [dispatch, category, search, order])
 
   useSelector(state => console.log(state))
+
+  if(loading) return (
+    <div>
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
+      <SkeletonCard />
+    </div>
+  )
 
   return (
     <div className="bg-white">
@@ -38,10 +58,28 @@ const Products = () => {
         <OrderSelection />
         <Filter />
       </div>
+
+      {!products.length && <div className="heading text-gray-900 font-semibold">No Products found</div>}
+
       {products.slice(page * 12, page * 12 + 12).map(p => <Card key={p.id} product={p}/>)}
       <div>
-        {page > 0 && <button className="button-blue" onClick={() => dispatch(setPage(page - 1))}>back</button>}
-        {products.length > (page + 1) * 12 && <button className="button-blue" onClick={() => dispatch(setPage(page + 1))}>next page</button>}
+        {page > 0 && 
+          <button
+            className="button-blue"
+            onClick={() => dispatch(setPage(page - 1))}
+          >
+            back
+          </button>
+        }
+
+        {products.length > (page + 1) * 12 &&
+          <button 
+            className="button-blue"
+            onClick={() => dispatch(setPage(page + 1))}
+          >
+            next page
+          </button>
+        }
       </div>
     </div>
   )
