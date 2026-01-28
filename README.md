@@ -10,4 +10,14 @@
 
 
 .env file:  
-  VITE_API_URL="https://fakestoreapi.com/products"
+  VITE_API_URL="https://fakestoreapi.com/products"  
+
+
+Использованные технологии:
+  Vite: упрощение настройки приложения.  
+  Redux, Redux Toolkit: State Management.  
+  Axios: упрощение запросов к api.  
+  tailwindcss: упрощение работы с css.  
+  use-debounce: debounce поиска.  
+  react-icons: иконки.  
+  
