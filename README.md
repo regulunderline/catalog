@@ -7,3 +7,7 @@
   cd .\frontend  
   npm install  
   npm run dev  
+
+
+.env file:  
+  VITE_API_URL="https://fakestoreapi.com/products"
