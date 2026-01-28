@@ -32,14 +32,16 @@ const Products = () => {
   useSelector(state => console.log(state))
 
   return (
-    <div>
-      <OrderSelection />
-      <Search />
-      <Filter />
+    <div className="bg-white">
+      <div>
+        <Search />
+        <OrderSelection />
+        <Filter />
+      </div>
       {products.slice(page * 12, page * 12 + 12).map(p => <Card key={p.id} product={p}/>)}
       <div>
-        {page > 0 && <button onClick={() => dispatch(setPage(page - 1))}>back</button>}
-        {products.length > (page + 1) * 12 && <button onClick={() => dispatch(setPage(page + 1))}>next page</button>}
+        {page > 0 && <button className="button-blue" onClick={() => dispatch(setPage(page - 1))}>back</button>}
+        {products.length > (page + 1) * 12 && <button className="button-blue" onClick={() => dispatch(setPage(page + 1))}>next page</button>}
       </div>
     </div>
   )

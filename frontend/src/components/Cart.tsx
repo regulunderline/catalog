@@ -12,16 +12,16 @@ const Cart = () => {
 
   return (
     <div>
-      <h1 className="text-center">Cart</h1>
+      <h1 className="text-7xl font-bold text-gray-900 text-center">Cart</h1>
       {cart.length 
         ? <div>
             {cart.map(p => <CartCard key={p.id} product={p} />)}
-            <button onClick={() => dispatch(setCart([]))}>clear</button>
+            <button className="button-blue" onClick={() => dispatch(setCart([]))}>clear</button>
           </div>
         : <div>cart is empty</div>
       }
-      <div>
-        total: {cart.reduce((s, c) => s + c.price * c.count, 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
+      <div className="heading text-gray-900">
+        Total: {cart.reduce((s, c) => s + c.price * c.count, 0).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}
       </div>
     </div>
   )

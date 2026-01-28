@@ -16,7 +16,7 @@ const Header = () => {
   const count = useSelector((state: StoreState) => state.cart.length)
 
   return (
-    <div className="fixed top-0 left-0 w-screen h-16 flex flex-row bg-gray-900 text-white shadow-lg">
+    <div className="fixed top-0 left-0 z-10 w-screen h-16 flex flex-row bg-gray-900 text-white shadow-lg">
       <Link to="/products"><HeaderIcon icon={<FaHome size="30" />} /></Link>
       <Link to="/cart"><HeaderIcon icon={<BsFillCartFill size="30" />} badgeText={count.toString()} /></Link>
     </div>

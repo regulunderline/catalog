@@ -17,8 +17,8 @@ const Filter = () => {
   const categories = useSelector((state: StoreState) => state.categories)
 
   return (
-    <div>
-      <label>
+    <div className="">
+      <label className="select-none ms-2 text-sm font-medium text-sm">
         all
         <input
           type="radio"
@@ -27,16 +27,18 @@ const Filter = () => {
             dispatch(setCategory('all'))}
           }
           defaultChecked
+          className="radio"
         />
       </label>
       
       {categories.map((c, i) => 
-        <label key={i}>
+        <label key={i} className="select-none ms-2 text-sm font-medium text-sm">
           {c}
           <input
             type="radio"
             name="filter"
             onChange={() => dispatch(setCategory(c))}
+            className="radio"
           />
         </label>
       )}

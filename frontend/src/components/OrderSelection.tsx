@@ -17,12 +17,14 @@ const OrderSelection = () => {
   }
 
   return (
-    <select onChange={handleChange}>
-      <option value='title'> title (A-Z)</option>
-      <option value='title desc'> title (Z-A)</option>
-      <option value='price'> cheap first</option>
-      <option value='price desc'> expensive first</option>
-    </select>
+    <div className="m-2">
+      <select className="select" onChange={handleChange}>
+        <option value='title'> title (A-Z)</option>
+        <option value='title desc'> title (Z-A)</option>
+        <option value='price'> cheap first</option>
+        <option value='price desc'> expensive first</option>
+      </select>
+    </div>
   )
 }
 

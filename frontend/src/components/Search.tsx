@@ -18,14 +18,20 @@ const Search = () => {
     debounced(event.target.value)
 
   return (
-    <div>
-      <label>
+    <>
+      <label htmlFor="search" className="block mb-2.5 text-sm font-medium text-gray-300 sr-only">
         search
-        <input
+      </label>
+      <div className="relative">
+        <input 
+          id="search"
+          className="input-search" 
+          placeholder="Search"
           onChange={handleChange}
         />
-      </label>
     </div>
+      
+    </>
   )
 }
 
