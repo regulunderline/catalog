@@ -40,8 +40,6 @@ const Products = () => {
     fetchData()
   }, [dispatch, category, search, order])
 
-  useSelector(state => console.log(state))
-
   if(loading) return (
     <div>
       <SkeletonCard />
