@@ -3,5 +3,9 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ]
+  ],
+  "compilerOptions": {
+    "typeRoots": ["./types", "./node_modules/@types", "./node_modules"],
+    "types": ["vitest/globals", "@testing-library/jest-dom/vitest", "jest"]
+  }
 }

@@ -21,7 +21,7 @@ const store = configureStore({
     page: pageReducer,
     notification: notificationReducer,
     loading: loadingReducer,
-}
+  }
 })
 
 export type StoreState = ReturnType<typeof store.getState>
