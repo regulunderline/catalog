@@ -27,17 +27,17 @@ const CartCard = ({ product }: { product: CartProduct }) => {
           : dispatch(removeFromCart({ id: product.id }))
         }>
           <div className="cart-card-icon">
-            <BsCartDashFill size="30" />
+            <BsCartDashFill size="30" data-testid="minus-cart-product" />
           </div>
         </button>
         <button onClick={() => dispatch(increaseCountInCart({ id: product.id, increaseBy: 1 }))}>
           <div className="cart-card-icon">
-            <BsCartPlusFill size="30" />
+            <BsCartPlusFill size="30" data-testid="plus-cart-product" />
           </div>
           </button>
         <button onClick={() => dispatch(removeFromCart({ id: product.id }))}>
           <div className="cart-card-icon">
-            <BsCartXFill size="30" />
+            <BsCartXFill size="30" data-testid="remove-cart-product" />
           </div>
         </button>
       </div> 
